@@ -1,0 +1,49 @@
+{
+  "name": "nfa-scaffold-generate",
+  "version": "1.0.1",
+  "description": "",
+  "type": "module",
+  "main": "cli.js",
+  "private": false,
+  "scripts": {
+    "test": "jest",
+    "start": "",
+    "generate": "./cli.js -p example-app/ generate Inventory name:string description:string:textarea isSold:boolean seller:string:email",
+    "watch": "npm-watch",
+    "setup": "npx create-react-app example-app && cd example-app && npm install --save @rjsf/material-ui react-notifications react-router-dom",
+    "example-app-watch": "(cd example-app; npm run watch)",
+    "example-app-run": "(cd example-app; npm start)"
+  },
+  "watch": {
+    "example-app-run": {
+      "patterns": [
+        "example-app/"
+      ]
+    },
+    "generate": {
+      "clearBuffer": true,
+      "patterns": [
+        "cli.js",
+        "templates"
+      ],
+      "extensions": ".js,.css",
+      "ignore": "example-app/"
+    }
+  },
+  "author": "Erriccc(@Github.com)",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "get-installed-path": "^4.0.8",
+    "merge-json-file": "^1.0.1",
+    "minimist": "^1.2.5",
+    "nfa-scaffold-generate": "^1.0.1",
+    "template-file": "^4.0.1"
+  },
+  "devDependencies": {
+    "npm-watch": "^0.7.0"
+  },
+  "bin": {
+    "nfa-scaffold-generate": "./cli.js"
+  }
+}
